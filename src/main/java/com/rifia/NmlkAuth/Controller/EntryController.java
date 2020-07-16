@@ -11,4 +11,5 @@ public class EntryController {
     public String helloMessage(){
         return "hello";
     }
+
 }

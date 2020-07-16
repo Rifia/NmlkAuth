@@ -50,12 +50,9 @@ public class AuthService {
         user.setLogin(user.getLogin());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        try {
-            this.userRepository.save(user);
-        }
-        catch (DataIntegrityViolationException e) {
-            throw new UniqueConditionException("Login " + user.getLogin() + " already exists");
-        }
-    }
 
+            if(this.userRepository.findByLogin(user.getLogin()).isPresent())
+                throw new UniqueConditionException("Login " + user.getLogin() + " already exists");
+            this.userRepository.save(user);
+    }
 }

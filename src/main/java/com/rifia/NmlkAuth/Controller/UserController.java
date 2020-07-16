@@ -5,6 +5,8 @@ import com.rifia.NmlkAuth.Service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 
 @RestController
 @RequestMapping("/auth")
@@ -18,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public void registration(@RequestBody User user){
+    public void registration(@Valid @RequestBody User user){
         authService.userRegistration(user);
     }
 
