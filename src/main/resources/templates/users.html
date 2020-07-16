@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <a th:href="@{/signup}">Sign Up</a>
+    <a th:href="@{/login}">Login</a>
+</div>
+<br/><br/>
+<table>
+    <thead>
+    <tr>
+        <th>Login</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.login}">&nbsp;</td>
+        <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>
+        <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
