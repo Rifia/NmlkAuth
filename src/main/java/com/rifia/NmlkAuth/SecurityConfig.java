@@ -38,7 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
    @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // TODO [KN] setup a proper authorization rules afterwards
         http.authorizeRequests()
                 .mvcMatchers("/auth/**").anonymous()
                 .mvcMatchers("/hello").authenticated()
